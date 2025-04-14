@@ -4,22 +4,6 @@
 # [Professor's Name]
 # [Date]
 
-**Subject: Documentation for Extracted SQL Queries from Korth Textbook (Chapters 3 & 4)**
-
-## 1. Introduction
-
-This document provides documentation for the specific SQL `SELECT` queries extracted from Chapters 3 and 4 of the provided textbook PDF ("korth-66-182.pdf"). The queries included focus on intermediate and advanced SQL concepts such as joins (including outer joins), aggregate functions with grouping/having, subqueries (nested, correlated, scalar), set operations, pattern matching, ordering, and `WITH` clauses. Basic `SELECT` statements (e.g., simple projections or selections on a single table with simple conditions) have been excluded as per the requirement.
-
-Each query listed below is accompanied by:
-* A description of its purpose (what question it answers).
-* Notes on the specific SQL techniques demonstrated.
-* A reference to its context in the textbook PDF.
-* A placeholder for the query's output screenshot.
-
-The corresponding `.sql` file containing all these queries is submitted alongside this document.
-
-## 2. Extracted SQL Queries and Explanations
-
 **--- Chapter 3 Queries ---**
 
 ### Query 1: Arithmetic Expression in SELECT
@@ -33,7 +17,8 @@ The corresponding `.sql` file containing all these queries is submitted alongsid
     FROM instructor;
     ```
 * **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
+    * *![image](https://github.com/user-attachments/assets/4b35ebfb-21d6-4edf-a49f-619f3bb5ac8c)
+*
 
 ---
 ### Query 2: WHERE clause with multiple conditions (AND)
@@ -48,7 +33,8 @@ The corresponding `.sql` file containing all these queries is submitted alongsid
     WHERE dept_name = 'Comp. Sci.' AND salary > 70000;
     ```
 * **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
+    * *![image](https://github.com/user-attachments/assets/482acf96-e553-46c9-b88c-3a38e4083be5)
+*
 
 ---
 ### Query 3: Join using WHERE Clause (Implicit Join)
@@ -63,7 +49,8 @@ The corresponding `.sql` file containing all these queries is submitted alongsid
     WHERE instructor.dept_name = department.dept_name;
     ```
 * **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
+    * *![image](https://github.com/user-attachments/assets/275ec56e-0635-4282-9ee8-a4f74593db08)
+*
 
 ---
 ### Query 4: Join using WHERE Clause (Implicit Join)
@@ -78,7 +65,8 @@ The corresponding `.sql` file containing all these queries is submitted alongsid
     WHERE instructor.ID = teaches.ID;
     ```
 * **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
+    * ![image](https://github.com/user-attachments/assets/7c3b44be-6b3d-4a96-b491-e9c6af640bf8)
+
 
 ---
 ### Query 5: Join using WHERE Clause with Additional Condition
@@ -93,7 +81,8 @@ The corresponding `.sql` file containing all these queries is submitted alongsid
     WHERE instructor.ID = teaches.ID AND instructor.dept_name = 'Comp. Sci.';
     ```
 * **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
+    * ![image](https://github.com/user-attachments/assets/893a0947-01ab-4a60-8996-2c17b50598b2)
+
 
 ---
 ### Query 6: Natural Join
@@ -107,7 +96,7 @@ The corresponding `.sql` file containing all these queries is submitted alongsid
     FROM instructor NATURAL JOIN teaches;
     ```
 * **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
+    * ![image](https://github.com/user-attachments/assets/8375b686-292a-47f1-9da5-48272c2a30f2)
 
 ---
 ### Query 7: Natural join and Cartesian product with WHERE clause
