@@ -1,8 +1,6 @@
-# [Your Name]
-# [Your Student ID]
-# [Course Name/Number]
-# [Professor's Name]
-# [Date]
+# Name: Nikhil Agarwal
+# Roll no.: 30712389613
+# Database Management System BCA-4002
 
 **--- Chapter 3 Queries ---**
 
@@ -111,7 +109,8 @@
     WHERE teaches.course_id = course.course_id;
     ```
 * **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
+    * ![image](https://github.com/user-attachments/assets/c67b7a2d-aa1b-46b2-bf81-1e1022d6f65c)
+
 
 ---
 ### Query 8: Multiple Natural Joins (Potentially Incorrect Example)
@@ -125,7 +124,7 @@
     FROM instructor NATURAL JOIN teaches NATURAL JOIN course;
     ```
 * **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
+    * ![image](https://github.com/user-attachments/assets/df45d3b5-2221-4152-bc51-aa3963149e43)
 
 ---
 ### Query 9: Join with USING clause
@@ -139,7 +138,8 @@
     FROM (instructor NATURAL JOIN teaches) JOIN course USING (course_id);
     ```
 * **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
+    * ![image](https://github.com/user-attachments/assets/ecc227b8-7c86-49e4-a5d4-4c2a6267b843)
+
 
 ---
 ### Query 10: Renaming attribute using AS
@@ -154,7 +154,7 @@
     WHERE instructor.ID = teaches.ID;
     ```
 * **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
+    * ![image](https://github.com/user-attachments/assets/1c0b6b10-9a90-4995-8930-1581e04285cc)
 
 ---
 ### Query 11: Renaming relations using AS (Aliases)
@@ -169,7 +169,8 @@
     WHERE T.ID = S.ID;
     ```
 * **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
+    * ![image](https://github.com/user-attachments/assets/86e909e7-e7ae-4311-a9e3-d52787e982bb)
+
 
 ---
 ### Query 12: Self-Join
@@ -184,7 +185,7 @@
     WHERE T.salary > S.salary AND S.dept_name = 'Biology';
     ```
 * **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
+    * ![image](https://github.com/user-attachments/assets/733a8866-4a0a-4415-babf-2497afef7bb8)
 
 ---
 ### Query 13: WHERE clause with LIKE for pattern matching
@@ -199,7 +200,8 @@
     WHERE building LIKE '%Watson%';
     ```
 * **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
+    * ![image](https://github.com/user-attachments/assets/33be61ab-7272-4dea-a6ae-af150ac88a1c)
+
 
 ---
 ### Query 14: Selecting all attributes from one table in a join
@@ -214,7 +216,8 @@
     WHERE instructor.ID = teaches.ID;
     ```
 * **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
+    * ![image](https://github.com/user-attachments/assets/c80af514-e1ad-4ee4-a7d8-9498f1bb9f6d)
+
 
 ---
 ### Query 15: ORDER BY clause
@@ -230,7 +233,8 @@
     ORDER BY name;
     ```
 * **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
+    * ![image](https://github.com/user-attachments/assets/65fb2a2c-a3e1-4d4c-b2de-0acc7751d41e)
+
 
 ---
 ### Query 16: ORDER BY multiple attributes with specified directions
@@ -245,7 +249,7 @@
     ORDER BY salary DESC, name ASC;
     ```
 * **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
+    * ![image](https://github.com/user-attachments/assets/d1fc16bc-9c86-4483-8669-9c2f1eef7881)
 
 ---
 ### Query 17: WHERE clause with BETWEEN operator
@@ -260,7 +264,7 @@
     WHERE salary BETWEEN 90000 AND 100000;
     ```
 * **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
+    * ![image](https://github.com/user-attachments/assets/2ea5d2b4-9f29-46d9-82f4-fae81ac2f651)
 
 ---
 ### Query 18: Tuple comparison in WHERE clause
@@ -275,7 +279,7 @@
     WHERE (instructor.ID, dept_name) = (teaches.ID, 'Biology');
     ```
 * **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
+    * ![image](https://github.com/user-attachments/assets/145d1cf7-26d1-41a3-93b9-24553d468a90)
 
 ---
 ### Query 19: Set Operation: UNION
@@ -294,7 +298,7 @@
      WHERE semester = 'Spring' AND year = 2010);
     ```
 * **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
+    * ![image](https://github.com/user-attachments/assets/161a8955-4069-4213-890c-c8b25cdec702)
 
 ---
 ### Query 20: Set Operation: UNION ALL
@@ -313,86 +317,11 @@
      WHERE semester = 'Spring' AND year = 2010);
     ```
 * **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
+    * ![image](https://github.com/user-attachments/assets/3fa22547-0c2c-43ac-a4d2-4655cf37b69c)
+
 
 ---
-### Query 21: Set Operation: INTERSECT
-
-* **Purpose:** To find the set of unique course IDs taught in *both* Fall 2009 and Spring 2010.
-* **Technique(s):** `INTERSECT` set operator. Returns only rows present in the results of both `SELECT` statements and automatically eliminates duplicates.
-* **Source Context:** Chapter 3, Section 3.5.2.
-* **SQL Query:**
-    ```sql
-    (SELECT course_id
-     FROM section
-     WHERE semester = 'Fall' AND year = 2009)
-    INTERSECT
-    (SELECT course_id
-     FROM section
-     WHERE semester = 'Spring' AND year = 2010);
-    ```
-* **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
-
----
-### Query 22: Set Operation: INTERSECT ALL
-
-* **Purpose:** To find course IDs taught in both Fall 2009 and Spring 2010, where the number of times a course ID appears in the result is the minimum of its occurrences in the two input sets.
-* **Technique(s):** `INTERSECT ALL` set operator. Retains duplicates based on the minimum frequency in the input results.
-* **Source Context:** Chapter 3, Section 3.5.2.
-* **SQL Query:**
-    ```sql
-    (SELECT course_id
-     FROM section
-     WHERE semester = 'Fall' AND year = 2009)
-    INTERSECT ALL
-    (SELECT course_id
-     FROM section
-     WHERE semester = 'Spring' AND year = 2010);
-    ```
-* **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
-
----
-### Query 23: Set Operation: EXCEPT
-
-* **Purpose:** To find the set of unique course IDs taught in Fall 2009 but *not* in Spring 2010.
-* **Technique(s):** `EXCEPT` set operator (or `MINUS` in some implementations like Oracle [cite: 609 footnote]). Performs set difference and automatically eliminates duplicates.
-* **Source Context:** Chapter 3, Section 3.5.3.
-* **SQL Query:**
-    ```sql
-    (SELECT course_id
-     FROM section
-     WHERE semester = 'Fall' AND year = 2009)
-    EXCEPT
-    (SELECT course_id
-     FROM section
-     WHERE semester = 'Spring' AND year = 2010);
-    ```
-* **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
-
----
-### Query 24: Set Operation: EXCEPT ALL
-
-* **Purpose:** To find course IDs taught in Fall 2009 but not Spring 2010, retaining duplicates from the first set minus duplicates from the second set.
-* **Technique(s):** `EXCEPT ALL` set operator. Performs set difference while considering duplicate counts.
-* **Source Context:** Chapter 3, Section 3.5.3.
-* **SQL Query:**
-    ```sql
-    (SELECT course_id
-     FROM section
-     WHERE semester = 'Fall' AND year = 2009)
-    EXCEPT ALL
-    (SELECT course_id
-     FROM section
-     WHERE semester = 'Spring' AND year = 2010);
-    ```
-* **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
-
----
-### Query 25: Checking for NULL values
+### Query 21: Checking for NULL values
 
 * **Purpose:** To find the names of instructors whose salary value is NULL.
 * **Technique(s):** `IS NULL` predicate in the `WHERE` clause to test for null values. Standard equality comparison (`= NULL`) evaluates to `unknown`.
@@ -404,10 +333,11 @@
     WHERE salary IS NULL;
     ```
 * **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
+    * ![image](https://github.com/user-attachments/assets/76f877fb-c112-47b8-abba-578d2b734adb)
+
 
 ---
-### Query 26: Aggregate function AVG
+### Query 22: Aggregate function AVG
 
 * **Purpose:** To find the average salary of instructors in the Computer Science department.
 * **Technique(s):** `AVG()` aggregate function. Applied to the `salary` column for rows matching the `WHERE` clause.
@@ -419,10 +349,10 @@
     WHERE dept_name = 'Comp. Sci.';
     ```
 * **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
+    * ![image](https://github.com/user-attachments/assets/c80bc340-16e2-4fea-8d9a-2104b074a748)
 
 ---
-### Query 27: Aggregate function AVG with Alias
+### Query 23: Aggregate function AVG with Alias
 
 * **Purpose:** To find the average salary of Computer Science instructors, giving the resulting column a meaningful name (`avg_salary`).
 * **Technique(s):** `AVG()` aggregate function. `AS` clause used to name the result column of the aggregation.
@@ -434,10 +364,11 @@
     WHERE dept_name = 'Comp. Sci.';
     ```
 * **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
+    * ![image](https://github.com/user-attachments/assets/60665a19-7383-45d5-953b-bd6afb52876f)
+
 
 ---
-### Query 28: Aggregate function COUNT DISTINCT
+### Query 24: Aggregate function COUNT DISTINCT
 
 * **Purpose:** To find the total number of *distinct* instructors who taught a course in the Spring 2010 semester.
 * **Technique(s):** `COUNT(DISTINCT column)` aggregate function. Counts unique values in the specified column (`ID`), ensuring each instructor is counted only once even if they taught multiple sections.
@@ -449,10 +380,11 @@
     WHERE semester = 'Spring' AND year = 2010;
     ```
 * **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
+    * ![image](https://github.com/user-attachments/assets/20060f6c-e7fa-41a1-89b0-d3a8c60d3597)
+
 
 ---
-### Query 29: Aggregate function COUNT(*)
+### Query 25: Aggregate function COUNT(*)
 
 * **Purpose:** To find the total number of tuples (rows) in the `course` relation.
 * **Technique(s):** `COUNT(*)` aggregate function. Counts all rows in the result set defined by the `FROM` and `WHERE` clauses (or the entire table if no `WHERE` clause).
@@ -463,10 +395,11 @@
     FROM course;
     ```
 * **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
+    * ![image](https://github.com/user-attachments/assets/afa4f82c-c1ee-4f95-9e38-5f6654a90bce)
+
 
 ---
-### Query 30: Aggregate function with GROUP BY
+### Query 26: Aggregate function with GROUP BY
 
 * **Purpose:** To find the average salary for each department.
 * **Technique(s):** `GROUP BY` clause. Groups rows based on the values in the specified column (`dept_name`). `AVG()` aggregate function applied to each group independently.
@@ -478,10 +411,10 @@
     GROUP BY dept_name;
     ```
 * **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
+    * ![image](https://github.com/user-attachments/assets/284b9aa5-b138-4a90-9d88-adf22ad93cb3)
 
 ---
-### Query 31: Aggregate function with GROUP BY and JOIN
+### Query 27: Aggregate function with GROUP BY and JOIN
 
 * **Purpose:** To find the number of distinct instructors in each department who taught a course in Spring 2010.
 * **Technique(s):** `NATURAL JOIN` to combine `instructor` and `teaches`. `WHERE` clause to filter for Spring 2010. `GROUP BY dept_name` to group by department. `COUNT(DISTINCT ID)` aggregate function applied per group.
@@ -494,10 +427,11 @@
     GROUP BY dept_name;
     ```
 * **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
+    * ![image](https://github.com/user-attachments/assets/2a51a432-05e7-4720-b76e-c16dbcbe135e)
+
 
 ---
-### Query 32: HAVING clause to filter groups
+### Query 28: HAVING clause to filter groups
 
 * **Purpose:** To find the departments where the average instructor salary is more than $42,000.
 * **Technique(s):** `GROUP BY` clause to group instructors by department. `HAVING` clause to filter these groups based on a condition involving an aggregate function (`AVG(salary) > 42000`). `HAVING` applies *after* grouping, unlike `WHERE` which applies before.
@@ -510,10 +444,10 @@
     HAVING AVG(salary) > 42000;
     ```
 * **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
+    * ![image](https://github.com/user-attachments/assets/d9d7498b-e488-464b-b575-3f836215a118)
 
 ---
-### Query 33: GROUP BY multiple columns with HAVING clause
+### Query 29: GROUP BY multiple columns with HAVING clause
 
 * **Purpose:** To find the average total credits (`tot_cred`) for students enrolled in each course section offered in 2009, but only for sections that had at least 2 students enrolled.
 * **Technique(s):** `NATURAL JOIN` of `takes` and `student`. `WHERE` clause to filter for year 2009. `GROUP BY` multiple columns (`course_id`, `semester`, `year`, `sec_id`) to group by section. `HAVING` clause with `COUNT(ID) >= 2` to filter groups (sections) based on the number of students. `AVG(tot_cred)` calculated per qualifying group.
@@ -527,10 +461,11 @@
     HAVING COUNT(ID) >= 2;
     ```
 * **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
+    * ![image](https://github.com/user-attachments/assets/1f6a7664-5543-48d0-bbf5-0880d51c46c4)
+
 
 ---
-### Query 34: Aggregate SUM (handles NULLs)
+### Query 30: Aggregate SUM (handles NULLs)
 
 * **Purpose:** To calculate the total salary expenditure for all instructors.
 * **Technique(s):** `SUM()` aggregate function. Ignores NULL values in the input collection by default.
@@ -541,10 +476,11 @@
     FROM instructor;
     ```
 * **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
+    * ![image](https://github.com/user-attachments/assets/064f6334-915d-4edd-8916-807538009c53)
+
 
 ---
-### Query 35: Subquery with IN operator
+### Query 31: Subquery with IN operator
 
 * **Purpose:** To find all unique course IDs taught in Fall 2009 that were also taught in Spring 2010. Alternative to using `INTERSECT`.
 * **Technique(s):** Nested subquery. `IN` operator tests for membership in the set of values returned by the subquery [cite: 721, 725-727].
@@ -559,10 +495,10 @@
                           WHERE semester = 'Spring' AND year = 2010);
     ```
 * **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
+    * ![image](https://github.com/user-attachments/assets/19f25bac-21b6-47ab-bfcf-5152c981bd30)
 
 ---
-### Query 36: Subquery with NOT IN operator
+### Query 32: Subquery with NOT IN operator
 
 * **Purpose:** To find all unique course IDs taught in Fall 2009 but *not* in Spring 2010. Alternative to using `EXCEPT`.
 * **Technique(s):** Nested subquery. `NOT IN` operator tests for absence of membership in the set of values returned by the subquery.
@@ -577,10 +513,10 @@
                               WHERE semester = 'Spring' AND year = 2010);
     ```
 * **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
+    * ![image](https://github.com/user-attachments/assets/714f5734-0446-440e-8abd-cf0d80613270)
 
 ---
-### Query 37: NOT IN with an enumerated list
+### Query 33: NOT IN with an enumerated list
 
 * **Purpose:** To select the names of instructors whose names are neither 'Mozart' nor 'Einstein'.
 * **Technique(s):** `NOT IN` operator used with an explicitly listed set of values.
@@ -592,10 +528,11 @@
     WHERE name NOT IN ('Mozart', 'Einstein');
     ```
 * **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
+    * ![image](https://github.com/user-attachments/assets/c292f721-9200-4692-a5dc-b39122505e97)
+
 
 ---
-### Query 38: Subquery with tuple comparison using IN
+### Query 34: Subquery with tuple comparison using IN
 
 * **Purpose:** To find the total number of distinct students who have taken any course section taught by the instructor with ID 10101.
 * **Technique(s):** Nested subquery returning multiple columns (a relation). `IN` operator used with tuple comparison to check if a tuple from `takes` matches a tuple returned by the subquery. `COUNT(DISTINCT ID)` aggregation.
@@ -609,10 +546,11 @@
                                                    WHERE teaches.ID = 10101);
     ```
 * **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
+    * ![image](https://github.com/user-attachments/assets/75995277-6bc5-4463-aed3-afb36706086b)
+
 
 ---
-### Query 39: Subquery with > SOME comparison
+### Query 35: Subquery with > SOME comparison
 
 * **Purpose:** To find the names of instructors whose salary is greater than the salary of *at least one* instructor in the Biology department.
 * **Technique(s):** Nested subquery returning a set of salary values. `> SOME` (or `> ANY` [cite: 754 footnote]) comparison operator. Returns true if the comparison is true for at least one value in the subquery result.
@@ -626,10 +564,10 @@
                            WHERE dept_name = 'Biology');
     ```
 * **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
+    * ![image](https://github.com/user-attachments/assets/86beec8d-f6a2-443d-857e-3d90ae0d2cdf)
 
 ---
-### Query 40: Subquery with > ALL comparison
+### Query 36: Subquery with > ALL comparison
 
 * **Purpose:** To find the names of instructors whose salary is greater than the salary of *every* instructor in the Biology department.
 * **Technique(s):** Nested subquery returning a set of salary values. `> ALL` comparison operator. Returns true if the comparison is true for all values in the subquery result.
@@ -643,10 +581,10 @@
                           WHERE dept_name = 'Biology');
     ```
 * **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
+    * ![image](https://github.com/user-attachments/assets/c5c2b42a-1b88-48bb-bdc8-09736ff78cf4)
 
 ---
-### Query 41: Subquery with >= ALL comparison (finding maximum)
+### Query 37: Subquery with >= ALL comparison (finding maximum)
 
 * **Purpose:** To find the department(s) that have the highest average salary.
 * **Technique(s):** Nested subquery calculates the average salary for *all* departments. Outer query calculates average salary per department and uses `>= ALL` comparison to find the department(s) whose average salary is greater than or equal to every average salary value returned by the subquery. Involves aggregation (`AVG`) and grouping (`GROUP BY`) in both outer query (`HAVING` clause) and subquery.
@@ -661,10 +599,10 @@
                                 GROUP BY dept_name);
     ```
 * **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
+    * ![image](https://github.com/user-attachments/assets/0ce48d6e-c552-42fd-99a9-2f0348d50689)
 
 ---
-### Query 42: Correlated subquery with EXISTS
+### Query 38: Correlated subquery with EXISTS
 
 * **Purpose:** To find all course IDs taught in both Fall 2009 and Spring 2010. Another alternative to `INTERSECT` or `IN`.
 * **Technique(s):** `EXISTS` operator. Tests if the subquery returns any rows (is non-empty). Correlated subquery: the subquery references a table alias (`S`) from the outer query (`S.course_id = T.course_id`). The subquery is evaluated for each row processed by the outer query.
@@ -680,99 +618,12 @@
                         S.course_id = T.course_id);
     ```
 * **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
+    * ![image](https://github.com/user-attachments/assets/f16a6303-69d3-48f3-9c7d-0a4b3567b252)
+
 
 ---
-### Query 43: Correlated subquery with NOT EXISTS and EXCEPT (Set Containment)
 
-* **Purpose:** To find all students who have taken *all* courses offered in the Biology department. This simulates the superset operation ("set of courses taken by student" contains "set of Biology courses").
-* **Technique(s):** `NOT EXISTS` operator. Correlated subquery. Uses `EXCEPT` within the subquery to find Biology courses *not* taken by the student. If this set difference is empty (i.e., `NOT EXISTS` is true), the student has taken all Biology courses.
-* **Source Context:** Chapter 3, Section 3.8.3.
-* **SQL Query:**
-    ```sql
-    SELECT DISTINCT S.ID, S.name
-    FROM student AS S
-    WHERE NOT EXISTS ((SELECT course_id
-                       FROM course
-                       WHERE dept_name = 'Biology')
-                      EXCEPT
-                      (SELECT T.course_id
-                       FROM takes AS T
-                       WHERE S.ID = T.ID));
-    ```
-* **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
-
----
-### Query 44: Subquery with UNIQUE
-
-* **Purpose:** To find all courses that were offered at most once in 2009.
-* **Technique(s):** `UNIQUE` predicate. Returns true if the subquery result contains no duplicate tuples. Note: `UNIQUE` handles NULLs differently than equality predicates and is not widely implemented [cite: 774 footnote, 781-782].
-* **Source Context:** Chapter 3, Section 3.8.4.
-* **SQL Query:**
-    ```sql
-    SELECT T.course_id
-    FROM course AS T
-    WHERE UNIQUE (SELECT R.course_id
-                    FROM section AS R
-                    WHERE T.course_id = R.course_id AND R.year = 2009);
-    ```
-* **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
-
----
-### Query 45: Equivalent query using COUNT instead of UNIQUE
-
-* **Purpose:** To find all courses that were offered at most once in 2009, using `COUNT` instead of the `UNIQUE` predicate.
-* **Technique(s):** Correlated subquery using `COUNT` aggregate. Checks if the count of sections for a given course in 2009 is less than or equal to 1.
-* **Source Context:** Chapter 3, Section 3.8.4.
-* **SQL Query:**
-    ```sql
-    SELECT T.course_id
-    FROM course AS T
-    WHERE 1 >= (SELECT count(R.course_id)
-                 FROM section AS R
-                 WHERE T.course_id= R.course_id AND R.year = 2009);
-    ```
-* **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
-
----
-### Query 46: Subquery with NOT UNIQUE
-
-* **Purpose:** To find all courses that were offered at least twice (i.e., more than once) in 2009.
-* **Technique(s):** `NOT UNIQUE` predicate. Returns true if the subquery result contains duplicate tuples.
-* **Source Context:** Chapter 3, Section 3.8.4.
-* **SQL Query:**
-    ```sql
-    SELECT T.course_id
-    FROM course AS T
-    WHERE NOT UNIQUE (SELECT R.course_id
-                        FROM section AS R
-                        WHERE T.course_id = R.course_id AND R.year = 2009);
-    ```
-* **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
-
----
-### Query 47: Subquery in the FROM clause (Derived Table)
-
-* **Purpose:** To find the average instructors' salaries only for those departments where the average salary is greater than $42,000. Alternative to using `HAVING`.
-* **Technique(s):** Subquery used in the `FROM` clause. The result of the subquery (which calculates average salary per department) acts as a temporary table (derived table) that the outer query selects from. The filtering condition (`avg_salary > 42000`) is applied in the outer query's `WHERE` clause.
-* **Source Context:** Chapter 3, Section 3.8.5 [cite: 783-788, 790].
-* **SQL Query:**
-    ```sql
-    SELECT dept_name, avg_salary
-    FROM (SELECT dept_name, AVG(salary) AS avg_salary
-          FROM instructor
-          GROUP BY dept_name) AS derived_table_alias -- Alias is needed for derived table in standard SQL
-    WHERE avg_salary > 42000;
-    ```
-* **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
-
----
-### Query 48: Subquery in the FROM clause with alias for relation and attributes
+### Query 39: Subquery in the FROM clause with alias for relation and attributes
 
 * **Purpose:** Same as Query 47, but explicitly names the derived table (`dept_avg`) and its columns (`dept_name`, `avg_salary`) using the `AS` clause.
 * **Technique(s):** Subquery in `FROM` clause. Using `AS` to provide an alias for the derived table and rename its attributes.
@@ -786,10 +637,10 @@
     WHERE avg_salary > 42000;
     ```
 * **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
+    * ![image](https://github.com/user-attachments/assets/526e3c43-4bfe-4c9b-a57a-a75d9fffce56)
 
 ---
-### Query 49: Aggregate function on result of subquery in FROM clause
+### Query 40: Aggregate function on result of subquery in FROM clause
 
 * **Purpose:** To find the maximum total salary budget across all departments.
 * **Technique(s):** Subquery in `FROM` calculates the total salary (`SUM(salary)`) for each department using `GROUP BY`. The outer query then applies the `MAX()` aggregate function to the `tot_salary` column of this derived table.
@@ -802,26 +653,11 @@
           GROUP BY dept_name) AS dept_total (dept_name, tot_salary);
     ```
 * **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
+    * ![image](https://github.com/user-attachments/assets/08969d11-221c-4cc5-8c79-f33b417295db)
+
 
 ---
-### Query 50: Correlated subquery in FROM clause using LATERAL
-
-* **Purpose:** To print the name and salary of each instructor, along with the average salary of their specific department.
-* **Technique(s):** `LATERAL` keyword used with a subquery in the `FROM` clause. Allows the subquery (`I2`) to reference columns from preceding items in the `FROM` list (`I1`). This enables calculating the department average dynamically for each instructor. (Note: `LATERAL` has limited support in SQL implementations).
-* **Source Context:** Chapter 3, Section 3.8.5.
-* **SQL Query:**
-    ```sql
-    SELECT name, salary, avg_salary
-    FROM instructor I1, LATERAL (SELECT AVG(salary) AS avg_salary
-                                 FROM instructor I2
-                                 WHERE I2.dept_name = I1.dept_name);
-    ```
-* **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
-
----
-### Query 51: WITH clause for defining temporary views
+### Query 41: WITH clause for defining temporary views
 
 * **Purpose:** To find the budget(s) of the department(s) with the maximum budget.
 * **Technique(s):** `WITH` clause defines a temporary named relation (`max_budget`) containing the maximum budget value (Common Table Expression - CTE). The main query then joins the `department` table with this CTE to find departments matching the maximum budget. Improves readability compared to nested subqueries.
@@ -836,10 +672,11 @@
     WHERE department.budget = max_budget.value;
     ```
 * **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
+    * ![image](https://github.com/user-attachments/assets/265ea9bf-2ca8-4bff-b1c5-135aac44a7ef)
+
 
 ---
-### Query 52: Multiple temporary views using WITH clause
+### Query 42: Multiple temporary views using WITH clause
 
 * **Purpose:** To find all departments where the total salary is greater than the average of the total salaries across all departments.
 * **Technique(s):** `WITH` clause used to define multiple CTEs: `dept_total` (calculating total salary per department) and `dept_total_avg` (calculating the average of those total salaries). The final query joins these CTEs to filter departments. Demonstrates modularity and readability benefits of `WITH`.
@@ -858,10 +695,10 @@
     WHERE dept_total.value >= dept_total_avg.value;
     ```
 * **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
+    * ![image](https://github.com/user-attachments/assets/cc9d9291-101a-4301-8003-3b0babee634d)
 
 ---
-### Query 53: Scalar subquery in SELECT clause
+### Query 43: Scalar subquery in SELECT clause
 
 * **Purpose:** To list all department names along with the number of instructors in each department.
 * **Technique(s):** Scalar subquery: a subquery used within the `SELECT` list that returns a single value (one row, one column). The subquery uses `COUNT(*)` and is correlated with the outer query via `department.dept_name = instructor.dept_name` to count instructors for the current department being processed by the outer query.
@@ -875,13 +712,13 @@
     FROM department;
     ```
 * **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
+    * ![image](https://github.com/user-attachments/assets/f23a0d29-e488-42f1-b41f-e1567b2ba09a)
 
 ---
 
 **--- Chapter 4 Queries ---**
 
-### Query 54: Join with ON clause
+### Query 44: Join with ON clause
 
 * **Purpose:** To combine `student` and `takes` information based on matching `ID` values.
 * **Technique(s):** Explicit `JOIN...ON` clause. The `ON` condition specifies the join predicate (`student.ID = takes.ID`). Unlike `NATURAL JOIN` or `USING`, common columns (`ID`) appear twice in the result unless explicitly projected. Functionally similar to using a `WHERE` clause for the join condition in this simple case.
@@ -892,10 +729,11 @@
     FROM student JOIN takes ON student.ID = takes.ID;
     ```
 * **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
+    * ![image](https://github.com/user-attachments/assets/be400e2e-89b8-489b-bf13-aa75e58fdeb2)
+
 
 ---
-### Query 55: Join with ON clause, explicit attribute selection and alias
+### Query 45: Join with ON clause, explicit attribute selection and alias
 
 * **Purpose:** Same join as Query 54, but explicitly lists the desired attributes in the `SELECT` clause to avoid duplicate `ID` columns and potentially rename `student.ID` to just `ID`.
 * **Technique(s):** `JOIN...ON` clause. Explicit projection of columns in the `SELECT` list. Use of alias (`AS ID`) for the projected `student.ID`.
@@ -907,10 +745,11 @@
     FROM student JOIN takes ON student.ID = takes.ID;
     ```
 * **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
+    * ![image](https://github.com/user-attachments/assets/2cb7f14f-dc6a-40ec-9650-fd481b6849b2)
+
 
 ---
-### Query 56: Left Outer Join (Natural)
+### Query 46: Left Outer Join (Natural)
 
 * **Purpose:** To list all students along with the courses they have taken, ensuring that students who have not taken any courses (like 'Snow') are still included in the result, with NULL values for the attributes from the `takes` relation [cite: 1100-1101, 1103].
 * **Technique(s):** `NATURAL LEFT OUTER JOIN`. Preserves all tuples from the left relation (`student`). If a student tuple has no matching `takes` tuple based on `ID`, it's included in the result padded with NULLs for `takes` attributes.
@@ -921,10 +760,10 @@
     FROM student NATURAL LEFT OUTER JOIN takes;
     ```
 * **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
+    * ![image](https://github.com/user-attachments/assets/e7f470a7-5220-47a6-aaae-46e77625b70a)
 
 ---
-### Query 57: Left Outer Join used to find non-matching rows
+### Query 47: Left Outer Join used to find non-matching rows
 
 * **Purpose:** To find the IDs of all students who have *not* taken any course.
 * **Technique(s):** `NATURAL LEFT OUTER JOIN` between `student` and `takes`. The `WHERE course_id IS NULL` clause filters the result to include only those student tuples that had no match in `takes` (and were therefore padded with NULLs).
@@ -936,10 +775,11 @@
     WHERE course_id IS NULL;
     ```
 * **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
+    * ![image](https://github.com/user-attachments/assets/bf19c3f3-006c-4c2e-9a92-3ee84a5a8266)
+
 
 ---
-### Query 58: Right Outer Join (Natural)
+### Query 48: Right Outer Join (Natural)
 
 * **Purpose:** To list all students and their taken courses, ensuring all students are included (similar to Query 56, but achieved by reversing table order and using `RIGHT OUTER JOIN`).
 * **Technique(s):** `NATURAL RIGHT OUTER JOIN`. Preserves all tuples from the right relation (`student`). If a student tuple has no match in `takes`, it's included padded with NULLs for `takes` attributes. The result is semantically the same as the left outer join but with potentially different column order.
@@ -950,30 +790,11 @@
     FROM takes NATURAL RIGHT OUTER JOIN student;
     ```
 * **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
+    * ![image](https://github.com/user-attachments/assets/5cf15184-9e00-451a-9f44-f9df887fc180)
+
 
 ---
-### Query 59: Full Outer Join (Natural) with subqueries in FROM
-
-* **Purpose:** To display a list of all Comp. Sci. students along with any course sections they took in Spring 2009, AND ALSO display all Spring 2009 sections, even if no Comp. Sci. student took them.
-* **Technique(s):** `NATURAL FULL OUTER JOIN`. Preserves tuples from *both* the left and right relations that do not have matches in the other relation, padding with NULLs as needed [cite: 1105, 1117-1118, 1128]. Uses subqueries in the `FROM` clause to pre-filter students (to Comp. Sci.) and takes (to Spring 2009) before the outer join.
-* **Source Context:** Chapter 4, Section 4.1.2.
-* **SQL Query:**
-    ```sql
-    SELECT *
-    FROM (SELECT *
-          FROM student
-          WHERE dept_name = 'Comp. Sci.') AS cs_students -- Alias needed
-    NATURAL FULL OUTER JOIN
-         (SELECT *
-          FROM takes
-          WHERE semester = 'Spring' AND year = 2009) AS spring_takes; -- Alias needed
-    ```
-* **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
-
----
-### Query 60: Left Outer Join with ON clause
+### Query 49: Left Outer Join with ON clause
 
 * **Purpose:** To combine `student` and `takes` based on matching `ID` values, ensuring all students are included (similar to Query 56).
 * **Technique(s):** `LEFT OUTER JOIN` with an explicit `ON` condition (`student.ID = takes.ID`). Preserves all tuples from the left relation (`student`), padding with NULLs where no match is found based on the `ON` condition. The common column (`ID`) appears twice in the raw result.
@@ -984,10 +805,10 @@
     FROM student LEFT OUTER JOIN takes ON student.ID = takes.ID;
     ```
 * **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
+    * ![image](https://github.com/user-attachments/assets/feea0c73-f8ac-45f1-ad73-9f78d38de7ef)
 
 ---
-### Query 61: Illustrating difference between ON and WHERE in Outer Join
+### Query 50: Illustrating difference between ON and WHERE in Outer Join
 
 * **Purpose:** To demonstrate that moving a join predicate from the `ON` clause to the `WHERE` clause changes the semantics of an `OUTER JOIN`. This query is unlikely to produce the intended result of a standard left outer join.
 * **Technique(s):** `LEFT OUTER JOIN` with a trivial `ON true` condition (conceptually joins every student with every takes record, padding non-matching students) followed by a `WHERE student.ID = takes.ID` filter [cite: 1147, 1149-1150]. The `WHERE` clause filters *after* the outer join padding, potentially eliminating the very NULL-padded rows the outer join was intended to preserve [cite: 1143-1145, 1151-1152].
@@ -999,10 +820,11 @@
     WHERE student.ID = takes.ID;
     ```
 * **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
+    * ![image](https://github.com/user-attachments/assets/cf9edceb-7f62-41e4-8db2-26ffe1895755)
+
 
 ---
-### Query 62: Inner Join with USING clause
+### Query 51: Inner Join with USING clause
 
 * **Purpose:** To combine `student` and `takes` information based on matching `ID` values, excluding students who haven't taken courses.
 * **Technique(s):** `JOIN...USING(ID)`. Specifies the column (`ID`) to use for the join condition. Assumes `ID` exists in both tables. Only includes rows where a match is found (inner join behavior). The common column (`ID`) appears only once in the result. `INNER` keyword is optional.
@@ -1013,26 +835,12 @@
     FROM student JOIN takes USING (ID);
     ```
 * **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
+    * ![image](https://github.com/user-attachments/assets/5c76060f-34f0-4462-8098-27e0caeba762)
+
+
 
 ---
-### Query 63: Querying a view
-
-* **Purpose:** To find all Physics courses offered in the Fall 2009 semester that were held in the Watson building, by querying a pre-defined view named `physics_fall_2009`.
-* **Technique(s):** Using a view name (`physics_fall_2009`) in the `FROM` clause as if it were a base table. The database system replaces the view name with its underlying query definition during processing.
-* **Source Context:** Chapter 4, Section 4.2.2.
-* **SQL Query:**
-    ```sql
-    -- Assuming physics_fall_2009 view is defined as in Query 65
-    SELECT course_id
-    FROM physics_fall_2009
-    WHERE building = 'Watson';
-    ```
-* **Output Screenshot:**
-    * *(Insert screenshot of query output here)*
-
----
-### Query 64: Query used within a view definition (Example: faculty view)
+### Query 52: Query used within a view definition (Example: faculty view)
 
 * **Purpose:** This query forms the definition of the `faculty` view, intended to show instructor ID, name, and department, hiding the salary.
 * **Technique(s):** Basic `SELECT` statement used within a `CREATE VIEW` command. Demonstrates using views for security/abstraction.
@@ -1044,10 +852,11 @@
     FROM instructor;
     ```
 * **Output Screenshot:**
-    * *(Insert screenshot of query output here, if run standalone)*
+    * ![image](https://github.com/user-attachments/assets/83e2d4e9-46b3-4018-bea4-56764b7afac0)
+
 
 ---
-### Query 65: Query used within a view definition (Example: physics_fall_2009 view)
+### Query 53: Query used within a view definition (Example: physics_fall_2009 view)
 
 * **Purpose:** This query forms the definition of the `physics_fall_2009` view, listing course sections offered by the Physics department in Fall 2009, including building and room number.
 * **Technique(s):** Implicit join between `course` and `section` with filtering conditions in the `WHERE` clause. Used within a `CREATE VIEW` statement.
@@ -1063,10 +872,11 @@
       AND section.year = '2009';
     ```
 * **Output Screenshot:**
-    * *(Insert screenshot of query output here, if run standalone)*
+    * ![image](https://github.com/user-attachments/assets/1246b96e-8cb3-4bc1-9fd0-90215436b8b6)
+
 
 ---
-### Query 66: Query used within a view definition (Example: departments_total_salary view)
+### Query 54: Query used within a view definition (Example: departments_total_salary view)
 
 * **Purpose:** This query forms the definition of the `departments_total_salary` view, calculating the sum of instructor salaries for each department.
 * **Technique(s):** Aggregate function `SUM()` with `GROUP BY` clause. Used within a `CREATE VIEW` statement that explicitly names the view attributes (`dept_name`, `total_salary`) because `SUM(salary)` doesn't have an inherent name.
@@ -1079,29 +889,7 @@
     GROUP BY dept_name;
     ```
 * **Output Screenshot:**
-    * *(Insert screenshot of query output here, if run standalone)*
+    * ![image](https://github.com/user-attachments/assets/41a80b54-5513-4b5c-b215-d992749cb47d)
+
 
 ---
-### Query 67: Querying a view derived from another view (Example: physics_fall_2009_watson)
-
-* **Purpose:** This query defines the `physics_fall_2009_watson` view by selecting specific columns from the `physics_fall_2009` view and filtering for the Watson building.
-* **Technique(s):** Demonstrates view composition, where one view (`physics_fall_2009_watson`) is defined by querying another view (`physics_fall_2009`).
-* **Source Context:** Chapter 4, Section 4.2.2.
-* **SQL Query (as part of view definition):**
-    ```sql
-    -- CREATE VIEW physics_fall_2009_watson AS
-    -- Assuming physics_fall_2009 view is defined as in Query 65
-    SELECT course_id, room_number
-    FROM physics_fall_2009
-    WHERE building = 'Watson';
-    ```
-* **Output Screenshot:**
-    * *(Insert screenshot of query output here, if run standalone)*
-
----
-
-## 3. Conclusion
-
-This documentation covers the specific SQL SELECT queries identified in Chapters 3 and 4 of the course textbook. The queries illustrate a range of SQL features, including various join types, aggregations, subqueries, set operations, and the use of views and common table expressions (WITH clause).
-
-convert it in word file
